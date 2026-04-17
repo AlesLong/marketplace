@@ -1,10 +1,9 @@
 package com.yevbes.marketplace.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data

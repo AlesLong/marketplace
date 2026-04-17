@@ -1,20 +1,23 @@
 package com.yevbes.marketplace.services;
 
+import com.yevbes.marketplace.entity.User;
+import com.yevbes.marketplace.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.HashMap;
 
 @Service
 public class AuthService {
 
-    private static final String SECRET = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
+    @Autowired
+    private UserRepository userRepository;
 
-    private final HashMap<String, String> users = new HashMap<>();
+    private static final String SECRET = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
 
     private SecretKey getSigningKey() {
         byte[] keyBytes = SECRET.getBytes(StandardCharsets.UTF_8);
@@ -31,19 +34,25 @@ public class AuthService {
     }
 
     public String register(String email, String password) {
-        if (users.containsKey(email)) {
+        if (userRepository.existsByEmail(email)) {
             throw new RuntimeException("User already exists!");
         }
 
-        users.put(email, password);
+        User user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+
+        userRepository.save(user);
+
         return generateToken(email);
     }
 
     public String login(String email, String password) {
-        String storedPassword = users.get(email);
+        User user = userRepository.findUserByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found!"));
 
-        if (storedPassword == null || !storedPassword.equals(password)){
-            throw new RuntimeException("Invalid email or password!");
+        if (!user.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid password!");
         }
 
         return generateToken(email);
