@@ -1,6 +1,6 @@
 package com.yevbes.marketplace.controller;
 
-import com.yevbes.marketplace.services.AuthService;
+import com.yevbes.marketplace.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
