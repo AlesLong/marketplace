@@ -23,9 +23,24 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/profiles/**").permitAll()
+                        // ДОЗВОЛЯЄМО ВСІ HTML СТОРІНКИ
+                        .requestMatchers("/", "/register", "/login", "/logout").permitAll()
+                        .requestMatchers("/profile", "/profile/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                        // ДОЗВОЛЯЄМО ВСІ REST API
+                        .requestMatchers("/api/**").permitAll()
+                        // ВСЕ ІНШЕ - ЗАБОРОНЕНО
                         .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/")
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .permitAll()
                 );
 
         return http.build();
