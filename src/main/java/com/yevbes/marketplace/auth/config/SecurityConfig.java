@@ -1,4 +1,4 @@
-package com.yevbes.marketplace.config;
+package com.yevbes.marketplace.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
