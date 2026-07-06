@@ -1,7 +1,8 @@
 package com.yevbes.marketplace.service;
 
-import com.yevbes.marketplace.entity.User;
-import com.yevbes.marketplace.repository.UserRepository;
+import com.yevbes.marketplace.auth.entity.User;
+import com.yevbes.marketplace.auth.repository.UserRepository;
+import com.yevbes.marketplace.auth.service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

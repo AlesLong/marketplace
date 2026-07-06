@@ -1,6 +1,7 @@
 package com.yevbes.marketplace.repository;
 
-import com.yevbes.marketplace.entity.User;
+import com.yevbes.marketplace.auth.entity.User;
+import com.yevbes.marketplace.auth.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

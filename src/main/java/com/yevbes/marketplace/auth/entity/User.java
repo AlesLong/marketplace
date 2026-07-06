@@ -1,4 +1,4 @@
-package com.yevbes.marketplace.entity;
+package com.yevbes.marketplace.auth.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

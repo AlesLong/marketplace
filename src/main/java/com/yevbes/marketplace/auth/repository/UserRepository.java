@@ -1,6 +1,6 @@
-package com.yevbes.marketplace.repository;
+package com.yevbes.marketplace.auth.repository;
 
-import com.yevbes.marketplace.entity.User;
+import com.yevbes.marketplace.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

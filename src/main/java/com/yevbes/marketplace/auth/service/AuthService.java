@@ -1,7 +1,7 @@
-package com.yevbes.marketplace.service;
+package com.yevbes.marketplace.auth.service;
 
-import com.yevbes.marketplace.entity.User;
-import com.yevbes.marketplace.repository.UserRepository;
+import com.yevbes.marketplace.auth.entity.User;
+import com.yevbes.marketplace.auth.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
