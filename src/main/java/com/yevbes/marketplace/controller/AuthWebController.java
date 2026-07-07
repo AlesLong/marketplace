@@ -1,6 +1,6 @@
-package com.yevbes.marketplace.auth.controller;
+package com.yevbes.marketplace.controller;
 
-import com.yevbes.marketplace.auth.service.AuthService;
+import com.yevbes.marketplace.service.AuthService;
 import com.yevbes.marketplace.profile.service.ProfileService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
