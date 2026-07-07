@@ -13,7 +13,7 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtUtils jwtUtils;  // ← ВИКОРИСТОВУЄМО JwtUtils
+    private final JwtUtils jwtUtils;
 
     public String register(String email, String password) {
         if (userRepository.existsByEmail(email)) {

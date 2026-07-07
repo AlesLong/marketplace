@@ -39,7 +39,6 @@ public class User implements UserDetails {
         createdAt = LocalDateTime.now();
     }
 
-    // ===== МЕТОДИ З UserDetails =====
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));

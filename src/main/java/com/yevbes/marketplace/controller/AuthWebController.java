@@ -57,7 +57,6 @@ public class AuthWebController {
                         Model model) {
         try {
             String token = authService.login(email, password);
-            // ЗБЕРІГАЄМО ТОКЕН В СЕСІЇ
             session.setAttribute("token", token);
             session.setAttribute("userEmail", email);
             return "redirect:/profile?email=" + email;
@@ -69,7 +68,7 @@ public class AuthWebController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate();  // ОЧИЩУЄМО СЕСІЮ
+        session.invalidate();
         return "redirect:/";
     }
 }

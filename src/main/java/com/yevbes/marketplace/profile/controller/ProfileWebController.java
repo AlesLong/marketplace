@@ -20,7 +20,6 @@ public class ProfileWebController {
     public String viewProfile(@RequestParam String email,
                               HttpSession session,
                               Model model) {
-        // Перевіряємо чи є токен в сесії
         String token = (String) session.getAttribute("token");
         if (token == null) {
             return "redirect:/login";
